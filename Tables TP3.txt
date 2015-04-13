@@ -1,0 +1,6 @@
+Adherent		Emprunts		Exemplaire		Livre			Genre
+--------		---------		----------		------			------
+NumAdherent		numExemplaire		NumExemplaire		NumLivre		CodeGenre
+.			numAdherent		NumLivre		CodeGenre
+.			DatePret
+.			DateRetour
