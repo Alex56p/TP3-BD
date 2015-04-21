@@ -5,6 +5,7 @@ import oracle.jdbc.pool.OracleDataSource;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -15,17 +16,29 @@ import java.sql.SQLException;
 public class Ajouter_Adherent {
     private JTextField TB_Prenom;
     private JTextField TB_Nom;
-    private JButton BTN_Cancel;
     private JButton BTN_Ajouter;
     public JPanel Panel1;
     Connection conn;
+    Boolean Modifier = false;
+    int Num;
 
     public Ajouter_Adherent()
     {
         Connexion();
         Boutons();
+        Modifier = false;
     }
 
+    public Ajouter_Adherent(String Nom, String Prenom, int Num_Adherent)
+    {
+        Connexion();
+        Boutons();
+        TB_Nom.setText(Nom);
+        TB_Prenom.setText(Prenom);
+        Modifier = true;
+        Num = Num_Adherent;
+        BTN_Ajouter.setText("Modifier");
+    }
     public void Connexion()
     {
         try
@@ -65,39 +78,54 @@ public class Ajouter_Adherent {
                     AjouterAdherent();
                 }
             });
-            BTN_Cancel.addActionListener((new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                }
-            }));
-
-
     }
 
     public void AjouterAdherent()
     {
-        try
+        JFrame frame = new JFrame();
+        if(!Modifier)
         {
-            JFrame frame = new JFrame();
-            if(!TB_Nom.getText().trim().isEmpty() && !TB_Prenom.getText().trim().isEmpty())
+            try
             {
-                String SQL = "INSERT INTO Adherent values(Adherents_seq.Nextval, ?, ?)";
-                PreparedStatement Ajout = conn.prepareStatement(SQL);
-                Ajout.setString(1, TB_Prenom.getText());
-                Ajout.setString(2, TB_Nom.getText());
-                int n = Ajout.executeUpdate();
-                javax.swing.JOptionPane.showMessageDialog(frame,"Adhérent ajouté!");
+                if(!TB_Nom.getText().trim().isEmpty() && !TB_Prenom.getText().trim().isEmpty())
+                {
+                    String SQL = "INSERT INTO Adherent values(Adherents_seq.Nextval, ?, ?)";
+                    PreparedStatement Ajout = conn.prepareStatement(SQL);
+                    Ajout.setString(1, TB_Prenom.getText());
+                    Ajout.setString(2, TB_Nom.getText());
+                    int n = Ajout.executeUpdate();
+                    javax.swing.JOptionPane.showMessageDialog(frame,"Adhérent ajouté!");
+                }
+                else
+                {
+                    javax.swing.JOptionPane.showMessageDialog(frame,"Erreur, veuillez entrer le nom et le prenom!");
+                }
             }
-            else
+            catch(SQLException e)
             {
-                javax.swing.JOptionPane.showMessageDialog(frame,"Erreur, veuillez entrer le nom et le prenom!");
+                JOptionPane.showMessageDialog(frame, "Impossible d'ajouter.");
             }
         }
-        catch(SQLException e)
+        else
         {
-            JFrame frame = new JFrame();
-            JOptionPane.showMessageDialog(frame, "Impossible d'ajouter.");
+            try
+            {
+                String SQL = "UPDATE Adherent SET Prenom_Adherent = ? , Nom_Adherent = ? WHERE Num_Adherent = ?";
+                PreparedStatement Update = conn.prepareStatement(SQL);
+                Update= conn.prepareStatement(SQL);
+                Update.setString(1, TB_Prenom.getText());
+                Update.setString(2, TB_Nom.getText());
+                Update.setInt(3, Num);
+                int n = Update.executeUpdate();
+                Update.clearParameters();
+
+                javax.swing.JOptionPane.showMessageDialog(frame, "Adhérent modifi�!");
+            }
+            catch(SQLException e)
+            {
+                JOptionPane.showMessageDialog(frame, "Impossible de modifier.");
+            }
+
         }
     }
 }
