@@ -1,6 +1,9 @@
 package InfoClg;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.xml.transform.Result;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,13 +22,67 @@ public class Adherents{
     private JButton BTN_Supprimer;
     public JPanel Panel1;
     public JPanel Panel2;
+    private JTabbedPane tabbedPane1;
+    private JPanel Panel_Adherent;
+    private JButton suivantButton;
+    private JButton precedentButton;
+    private JTextField TB_Numero;
+    private JTextField TB_Titre;
+    private JTextField TB_Auteur;
+    private JTextField TB_Genre;
+    private JTextField TB_Date;
+    private JTextField TB_Maison;
+    private JTable Table_Prets;
+    private JButton BTN_Ajouter_Pret;
     private static Connection conn;
     public ArrayList<Integer> Num_Adherents = new ArrayList<Integer>();
 
+    public ResultSet rst2;
+
     public Adherents() throws Exception{
+        //Adherents
         Connexion();
         AfficherAdherents();
         Boutons();
+
+        //Livres
+        AfficherLivres();
+
+        // Prêts
+        AjouterRows();
+        //AfficherPrets();
+    }
+
+    private void AfficherLivres() throws Exception{
+        String SQL = "SELECT NUM_LIVRE, TITRE_LIVRE,CODE_GENRE, AUTEUR_LIVRE,ANNEE_LIVRE FROM LIVRE";
+        PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        rst2 = stm.executeQuery();
+        if(rst2.first()) {
+            TB_Numero.setText(rst2.getString("NUM_LIVRE"));
+            TB_Titre.setText(rst2.getString("TITRE_LIVRE"));
+            TB_Genre.setText(rst2.getString("CODE_GENRE"));
+            TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
+            TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
+        }
+    }
+
+    private void AfficherLivreSuivant() throws Exception {
+        if (rst2.next()) {
+            TB_Numero.setText(rst2.getString("NUM_LIVRE"));
+            TB_Titre.setText(rst2.getString("TITRE_LIVRE"));
+            TB_Genre.setText(rst2.getString("CODE_GENRE"));
+            TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
+            TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
+        }
+    }
+    private void AfficherLivrePrecedent() throws Exception {
+        if(rst2.previous()) {
+            TB_Numero.setText(rst2.getString("NUM_LIVRE"));
+            TB_Titre.setText(rst2.getString("TITRE_LIVRE"));
+            TB_Genre.setText(rst2.getString("CODE_GENRE"));
+            TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
+            TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
+        }
     }
 
     public void Connexion() throws Exception
@@ -153,6 +210,44 @@ public class Adherents{
                 }
             }
         });
+
+        suivantButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    AfficherLivreSuivant();
+                } catch (Exception e) {
+
+                }
+            }
+        });
+
+        precedentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    AfficherLivrePrecedent();
+                } catch (Exception e) {
+
+                }
+            }
+        });
+
+        BTN_Ajouter_Pret.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                // on crï¿½e une fenï¿½tre dont le titre est "Bonjour"
+                JFrame frame = new JFrame("Ajouter_Pret");
+                // on ajoute le contenu du Panne1
+                frame.setContentPane(new Ajouter_Pret().Panel1);
+                //la fenï¿½tre se ferme quand on clique sur la croix rouge
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                //on attribue la taille minimale au frame
+                frame.pack();
+                // on rend le frame visible
+                frame.setVisible(true);
+            }
+        });
     }
 
     public String GetNom()
@@ -233,7 +328,10 @@ public class Adherents{
         {
 
         }
+    }
 
+    public void AjouterRows()
+    {
 
     }
 }
