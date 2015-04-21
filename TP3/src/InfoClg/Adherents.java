@@ -3,6 +3,8 @@ package InfoClg;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ContainerAdapter;
 import java.sql.*;
 import oracle.jdbc.*;
 import oracle.jdbc.pool.*;
@@ -22,7 +24,7 @@ public class Adherents{
     public Adherents() throws Exception{
         Connexion();
         AfficherAdherents();
-        Bouttons();
+        Boutons();
     }
 
     public void Connexion() throws Exception
@@ -31,13 +33,13 @@ public class Adherents{
         String mdep ="ORACLE1";
         String url="jdbc:oracle:thin:@205.237.244.251:1521:orcl";
         Class.forName("oracle.jdbc.driver.OracleDriver");
-        //déclarer un objet OracledataSource
+        //dï¿½clarer un objet OracledataSource
         OracleDataSource ods = new OracleDataSource();
-        // définir les paramètres de connexion pour l’objet OracleDataSourse ods
+        // dï¿½finir les paramï¿½tres de connexion pour lï¿½objet OracleDataSourse ods
         ods.setURL(url);
         ods.setUser(user1);
         ods.setPassword(mdep);
-        // Appel de la méthode getConnection pour obtenir une connexion
+        // Appel de la mï¿½thode getConnection pour obtenir une connexion
         conn = ods.getConnection();
     }
 
@@ -48,7 +50,7 @@ public class Adherents{
         PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         ResultSet rst = stm.executeQuery(SQL);
 
-        // Créer une liste pour mettre les enregistrements
+        // Crï¿½er une liste pour mettre les enregistrements
         DefaultListModel liste = new DefaultListModel();
 
         // Mettre les enregistrements
@@ -61,17 +63,17 @@ public class Adherents{
         Liste_Adherents.setModel(liste);
     }
 
-    public void Bouttons() throws Exception
+    public void Boutons() throws Exception
     {
         BTN_Ajouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                // on crée une fenêtre dont le titre est "Bonjour"
+                // on crï¿½e une fenï¿½tre dont le titre est "Bonjour"
                 JFrame frame = new JFrame("Ajouter_Adherent");
                 // on ajoute le contenu du Panne1
                 frame.setContentPane(new Ajouter_Adherent().Panel1);
-                //la fenêtre se ferme quand on clique sur la croix rouge
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //la fenï¿½tre se ferme quand on clique sur la croix rouge
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 //on attribue la taille minimale au frame
                 frame.pack();
                 // on rend le frame visible
