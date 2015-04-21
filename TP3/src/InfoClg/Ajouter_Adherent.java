@@ -3,10 +3,8 @@ package InfoClg;
 import oracle.jdbc.pool.OracleDataSource;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -36,22 +34,24 @@ public class Ajouter_Adherent {
             String mdep ="ORACLE1";
             String url="jdbc:oracle:thin:@205.237.244.251:1521:orcl";
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            //déclarer un objet OracledataSource
+            //dï¿½clarer un objet OracledataSource
             OracleDataSource ods = new OracleDataSource();
-            // définir les paramètres de connexion pour l’objet OracleDataSourse ods
+            // dï¿½finir les paramï¿½tres de connexion pour lï¿½objet OracleDataSourse ods
             ods.setURL(url);
             ods.setUser(user1);
             ods.setPassword(mdep);
-            // Appel de la méthode getConnection pour obtenir une connexion
+            // Appel de la mï¿½thode getConnection pour obtenir une connexion
             conn = ods.getConnection();
         }
         catch(SQLException e)
         {
-
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Connexion impossible.");
         }
         catch(ClassNotFoundException e)
         {
-
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Classe non-trouvÃ©e.");
         }
 
     }
@@ -65,6 +65,12 @@ public class Ajouter_Adherent {
                     AjouterAdherent();
                 }
             });
+            BTN_Cancel.addActionListener((new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                }
+            }));
 
 
     }
@@ -73,24 +79,25 @@ public class Ajouter_Adherent {
     {
         try
         {
-            if(TB_Nom.getText() != null && TB_Prenom.getText() != null)
+            JFrame frame = new JFrame();
+            if(!TB_Nom.getText().trim().isEmpty() && !TB_Prenom.getText().trim().isEmpty())
             {
                 String SQL = "INSERT INTO Adherent values(Adherents_seq.Nextval, ?, ?)";
                 PreparedStatement Ajout = conn.prepareStatement(SQL);
                 Ajout.setString(1, TB_Prenom.getText());
                 Ajout.setString(2, TB_Nom.getText());
                 int n = Ajout.executeUpdate();
+                javax.swing.JOptionPane.showMessageDialog(frame,"AdhÃ©rent ajoutÃ©!");
             }
             else
             {
-                javax.swing.JOptionPane.showMessageDialog(null,"Erreur, veuillez entrer le nom et le prénom!");
+                javax.swing.JOptionPane.showMessageDialog(frame,"Erreur, veuillez entrer le nom et le prenom!");
             }
         }
         catch(SQLException e)
         {
-
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Impossible d'ajouter.");
         }
-
-
     }
 }
