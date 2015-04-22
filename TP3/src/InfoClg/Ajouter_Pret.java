@@ -142,15 +142,44 @@ public class Ajouter_Pret {
             currentDate = calendar.getTime();
             java.sql.Date date2 = new java.sql.Date(currentDate.getTime());
 
-            // Requête
-            String SQL = "INSERT INTO EMPRUNT VALUES(?, ?, ?, ?)";
+            if(NumE != 0)
+            {
+                PlusDisponible(NumE);
+                // Requête
+                String SQL = "INSERT INTO EMPRUNT VALUES(?, ?, ?, ?)";
+                PreparedStatement PS = conn.prepareStatement(SQL);
+
+                PS.setInt(1, NumE);
+                PS.setInt(2, NumC);
+                PS.setDate(3, date);
+                PS.setDate(4, date2);
+
+                int n = PS.executeUpdate();
+                PS.clearParameters();
+
+
+            }
+            else
+            {
+                JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f,"Le livre n'est plus en stock");
+            }
+
+        }
+        catch(SQLException e)
+        {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, e.getMessage());
+        }
+    }
+
+    public void PlusDisponible(int Num_Exemplaire)
+    {
+        try
+        {
+            String SQL = "UPDATE Exemplaire SET Disponible = 0 WHERE Num_Exemplaire = ?";
             PreparedStatement PS = conn.prepareStatement(SQL);
-
-            PS.setInt(1, NumE);
-            PS.setInt(2, NumC);
-            PS.setDate(3, date);
-            PS.setDate(4, date2);
-
+            PS.setInt(1, Num_Exemplaire);
             int n = PS.executeUpdate();
             PS.clearParameters();
         }
@@ -166,7 +195,7 @@ public class Ajouter_Pret {
         int res = 0;
         try
         {
-            String SQL = "SELECT Num_Exemplaire FROM EXEMPLAIRE WHERE Num_Livre = ? AND DISPONIBLE = 0";
+            String SQL = "SELECT Num_Exemplaire FROM EXEMPLAIRE WHERE Num_Livre = ? AND DISPONIBLE = 1";
             PreparedStatement PS = conn.prepareStatement(SQL);
 
             PS.setInt(1, Num_Livre);

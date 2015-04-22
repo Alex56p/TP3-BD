@@ -78,12 +78,46 @@ INCREMENT BY 1;
 
 -- INSERTIONS
 INSERT INTO Adherent VALUES(seq_adherent.nextval, 'Alexis', 'Parent');
+INSERT INTO Adherent VALUES(seq_adherent.nextval, 'Anthony', 'Labelle-Voyez');
+INSERT INTO Adherent VALUES(seq_adherent.nextval, 'Samuel', 'Caron');
+INSERT INTO Adherent VALUES(seq_adherent.nextval, 'Pénélope', 'Lapierre');
+
+
 INSERT INTO Genre VALUES(seq_genre.nextval, 'Action');
+INSERT INTO Genre VALUES(seq_genre.nextval, 'Aventure');
+INSERT INTO Genre VALUES(seq_genre.nextval, 'Science-Fiction');
+INSERT INTO Genre VALUES(seq_genre.nextval, 'Dramatique');
+
 INSERT INTO Livre VALUES(seq_livres.nextval, 2, 'Harry Potter', 'J.K. Rowling', '2000');
-INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 2);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 0);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 0);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 0);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 0);
+INSERT INTO Livre VALUES(seq_livres.nextval, 3, 'Amos Daragon', 'Le pape', '1000');
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 3, 0);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 3, 0);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 3, 0);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 3, 0);
+INSERT INTO Livre VALUES(seq_livres.nextval, 4, 'Interstellaire', 'Alain Patoche', '1990');
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 4, 0);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 4, 1);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 4, 1);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 4, 1);
+INSERT INTO Livre VALUES(seq_livres.nextval, 5, '50 shades of grey', 'Martin Poilu', '1234');
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 5, 1);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 5, 1);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 5, 1);
+INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 5, 0);
+
 INSERT INTO Emprunt VALUES(2, 2, '2013-04-19', '2013-05-19');
-
-INSERT INTO LIVRE VALUES(seq_livres.nextval, 2, 'YEha', 'J.K.a', '2002');
-
+INSERT INTO Emprunt VALUES(3, 3, '2013-04-19', '2013-05-19');
+INSERT INTO Emprunt VALUES(4, 4, '2013-04-19', '2013-05-19');
+INSERT INTO Emprunt VALUES(5, 5, '2013-04-19', '2013-05-19');
+INSERT INTO Emprunt VALUES(6, 2, '2013-04-19', '2013-05-19');
+INSERT INTO Emprunt VALUES(7, 2, '2013-04-19', '2013-05-19');
+INSERT INTO Emprunt VALUES(8, 3, '2013-04-19', '2013-05-19');
+INSERT INTO Emprunt VALUES(9, 4, '2013-04-19', '2013-05-19');
+INSERT INTO Emprunt VALUES(10, 5, '2013-04-19', '2013-05-19');
+INSERT INTO Emprunt VALUES(17, 2, '2013-04-19', '2013-05-19');
 
 COMMIT;

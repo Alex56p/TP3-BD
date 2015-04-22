@@ -58,7 +58,7 @@ public class Adherents{
     {
         try
         {
-            String SQL = "SELECT Num_Exemplaire, Num_Adherent, Date_Emprunt, DateRetour_Emprunt FROM Emprunt";
+            String SQL = "SELECT Num_Exemplaire, Num_Adherent, Date_Emprunt, DateRetour_Emprunt FROM Emprunt ORDER BY Num_Adherent";
             PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rst = stm.executeQuery();
 
@@ -69,7 +69,7 @@ public class Adherents{
             {
                 int Num_Exemplaire = rst.getInt("Num_Exemplaire");
                 int Num_Adherent = rst.getInt("Num_Adherent");
-                liste.addElement( "Titre Livre : " + GetTitre(Num_Exemplaire) + " | Genre Livre : " + GetGenre(Num_Exemplaire) + " | Date du Prêt : " + rst.getDate("Date_Emprunt") + " | Date de retour : " + rst.getDate("DateRetour_Emprunt") + " | Nom Adherent : " + GetPrenom(Num_Adherent) + " " + GetNom(Num_Adherent));
+                liste.addElement( "Titre Livre : " + GetTitre(Num_Exemplaire) + " | Genre Livre : " + GetGenre(Num_Exemplaire) + " | Date du Pret : " + rst.getDate("Date_Emprunt") + " | Date de retour : " + rst.getDate("DateRetour_Emprunt") + " | Nom Adherent : " + GetPrenom(Num_Adherent) + " " + GetNom(Num_Adherent));
             }
 
             // Mettre la liste dans le form
@@ -86,14 +86,14 @@ public class Adherents{
 
     }
 
-    public String GetGenre(int Num_Livre)
+    public String GetGenre(int Num_Exemplaire)
     {
         String Res = "";
 
         try
         {
             String SQL = "Select Nom_Genre FROM GENRE WHERE Code_Genre = ?";
-            int CodeGenre = GetCodeGenre(Num_Livre);
+            int CodeGenre = GetCodeGenre(Num_Exemplaire);
             PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             stm.setInt(1, CodeGenre);
             ResultSet rst = stm.executeQuery();
@@ -113,15 +113,16 @@ public class Adherents{
         return Res;
     }
 
-    public int GetCodeGenre(int Num_Livre)
+    public int GetCodeGenre(int Num_Exemplaire)
     {
         int Res = 0;
 
         try
         {
             String SQL = "SELECT Code_Genre FROM Livre WHERE Num_Livre = ?";
+            int numLivre = GetNumLivre(Num_Exemplaire);
             PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            stm.setInt(1, Num_Livre);
+            stm.setInt(1, numLivre);
             ResultSet rst = stm.executeQuery();
 
             if(rst.next())
@@ -152,7 +153,7 @@ public class Adherents{
 
             if(rst.next())
             {
-                Res = rst2.getString("Titre_Livre");
+                Res = rst.getString("Titre_Livre");
             }
             stm.clearParameters();
         }
@@ -408,6 +409,18 @@ public class Adherents{
                 frame.pack();
                 // on rend le frame visible
                 frame.setVisible(true);
+
+                frame.addWindowListener(new WindowAdapter() {
+
+                    @Override
+                    public void windowClosing(WindowEvent windowEvent) {
+                        try {
+                            AfficherPrets();
+                        } catch (Exception a) {
+
+                        }
+                    }
+                });
             }
         });
     }
