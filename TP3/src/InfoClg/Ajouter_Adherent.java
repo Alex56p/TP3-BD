@@ -18,6 +18,8 @@ public class Ajouter_Adherent {
     private JTextField TB_Nom;
     private JButton BTN_Ajouter;
     public JPanel Panel1;
+    private JTextField TB_Adresse;
+    private JTextField TB_Telephone;
     Connection conn;
     Boolean Modifier = false;
     int Num;
@@ -89,10 +91,12 @@ public class Ajouter_Adherent {
             {
                 if(!TB_Nom.getText().trim().isEmpty() && !TB_Prenom.getText().trim().isEmpty())
                 {
-                    String SQL = "INSERT INTO Adherent values(SEQ_ADHERENT.Nextval, ?, ?)";
+                    String SQL = "INSERT INTO Adherent values(?, ?, ?, ?)";
                     PreparedStatement Ajout = conn.prepareStatement(SQL);
                     Ajout.setString(1, TB_Prenom.getText());
                     Ajout.setString(2, TB_Nom.getText());
+                    Ajout.setString(3, TB_Adresse.getText());
+                    Ajout.setString(4, TB_Telephone.getText());
                     int n = Ajout.executeUpdate();
                     javax.swing.JOptionPane.showMessageDialog(frame,"Adhérent ajouté!");
                 }

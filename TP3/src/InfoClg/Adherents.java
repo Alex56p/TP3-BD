@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.xml.transform.Result;
 import java.awt.event.*;
+import java.beans.PropertyChangeListener;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -17,6 +18,7 @@ import oracle.jdbc.pool.*;
  * Created by 201332037 on 2015-04-13.
  */
 public class Adherents{
+
     private JButton BTN_Ajouter;
     private JButton BTN_Modifier;
     private JList Liste_Adherents;
@@ -35,12 +37,17 @@ public class Adherents{
     private JTextField TB_Maison;
     private JButton BTN_Ajouter_Pret;
     private JList Liste_Pret;
+    private JList Liste_Recherche;
+    private JTextField TB_Auteur_Recherche;
+    private JTextField TB_Titre_Recherche;
+    private JButton Rechercher_Auteur;
+    private JButton Rechercher_Titre;
     private static Connection conn;
     public ArrayList<Integer> Num_Adherents = new ArrayList<Integer>();
-
     public ResultSet rst2;
 
-    public Adherents() throws Exception{
+    public Adherents() throws Exception
+    {
         //Adherents
         Connexion();
         AfficherAdherents();
@@ -51,7 +58,6 @@ public class Adherents{
 
         // Prêts
         AfficherPrets();
-        //AfficherPrets();
     }
 
     public void AfficherPrets()
@@ -191,7 +197,8 @@ public class Adherents{
         return num;
     }
 
-    private void AfficherLivres() throws Exception{
+    private void AfficherLivres() throws Exception
+    {
         String SQL = "SELECT NUM_LIVRE, TITRE_LIVRE,CODE_GENRE, AUTEUR_LIVRE,ANNEE_LIVRE FROM LIVRE ORDER BY CODE_GENRE";
         PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         rst2 = stm.executeQuery();
@@ -204,7 +211,8 @@ public class Adherents{
         }
     }
 
-    private void AfficherLivreSuivant() throws Exception {
+    private void AfficherLivreSuivant() throws Exception
+    {
         if (rst2.next()) {
             TB_Numero.setText(rst2.getString("NUM_LIVRE"));
             TB_Titre.setText(rst2.getString("TITRE_LIVRE"));
@@ -213,7 +221,9 @@ public class Adherents{
             TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
         }
     }
-    private void AfficherLivrePrecedent() throws Exception {
+
+    private void AfficherLivrePrecedent() throws Exception
+    {
         if(rst2.previous()) {
             TB_Numero.setText(rst2.getString("NUM_LIVRE"));
             TB_Titre.setText(rst2.getString("TITRE_LIVRE"));
@@ -248,6 +258,7 @@ public class Adherents{
 
         return Res;
     }
+
     public void Connexion() throws Exception
     {
         String user1 ="parental";
@@ -263,7 +274,6 @@ public class Adherents{
         // Appel de la mï¿½thode getConnection pour obtenir une connexion
         conn = ods.getConnection();
     }
-
 
     public void AfficherAdherents() throws Exception
     {
@@ -423,6 +433,82 @@ public class Adherents{
                 });
             }
         });
+
+        Rechercher_Auteur.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                RechercherAuteur();
+            }
+        });
+
+        Rechercher_Titre.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                RechercherTitre();
+            }
+        });
+    }
+
+    public void RechercherAuteur()
+    {
+        try
+        {
+            String SQL = "SELECT Titre_Livre FROM Livre WHERE Auteur_Livre = ?";
+            PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stm.setString(1, TB_Auteur_Recherche.getText());
+            ResultSet rst = stm.executeQuery();
+
+            // Crï¿½er une liste pour mettre les enregistrements
+            DefaultListModel liste = new DefaultListModel();
+
+
+            while(rst.next())
+            {
+                liste.addElement(rst.getString("Titre_Livre"));
+            }
+
+            // Mettre la liste dans le form
+            Liste_Recherche.setModel(liste);
+
+            stm.clearParameters();
+
+        }
+        catch(SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "RechercherAuteur");
+        }
+
+    }
+
+    public void RechercherTitre()
+    {
+        try
+        {
+            String SQL = "SELECT Titre_Livre FROM Livre WHERE Titre_Livre LIKE '" + TB_Titre_Recherche.getText() + "%'";
+            PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rst = stm.executeQuery();
+
+            // Crï¿½er une liste pour mettre les enregistrements
+            DefaultListModel liste = new DefaultListModel();
+
+
+            while(rst.next())
+            {
+                liste.addElement(rst.getString("Titre_Livre"));
+            }
+
+            // Mettre la liste dans le form
+            Liste_Recherche.setModel(liste);
+
+            stm.clearParameters();
+
+        }
+        catch(SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "RechercherTitre");
+        }
     }
 
     public String GetNom()

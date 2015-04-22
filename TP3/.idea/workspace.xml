@@ -66,44 +66,70 @@
         <entry file="file://$PROJECT_DIR$/src/InfoClg/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Adherents.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Adherents.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/InfoClg/Adherents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45870206">
-              <caret line="212" column="9" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="538" column="5" selection-start-line="538" selection-start-column="5" selection-end-line="538" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1170#1179#0" expanded="true" />
+                <element signature="e#1412#1421#0" expanded="true" />
+                <element signature="method#Adherents#0;class#Adherents#0" expanded="false" />
+                <element signature="method#AfficherPrets#0;class#Adherents#0" expanded="false" />
+                <element signature="method#GetGenre#0;class#Adherents#0" expanded="false" />
+                <element signature="method#GetCodeGenre#0;class#Adherents#0" expanded="false" />
+                <element signature="method#GetTitre#0;class#Adherents#0" expanded="false" />
+                <element signature="method#GetNumLivre#0;class#Adherents#0" expanded="false" />
+                <element signature="method#AfficherLivres#0;class#Adherents#0" expanded="false" />
+                <element signature="method#AfficherLivreSuivant#0;class#Adherents#0" expanded="false" />
+                <element signature="method#AfficherLivrePrecedent#0;class#Adherents#0" expanded="false" />
+                <element signature="method#GetGenre#1;class#Adherents#0" expanded="false" />
+                <element signature="method#Connexion#0;class#Adherents#0" expanded="false" />
+                <element signature="method#AfficherAdherents#0;class#Adherents#0" expanded="false" />
+                <element signature="method#Boutons#0;class#Adherents#0" expanded="false" />
+                <element signature="e#9694#11456#0" expanded="true" />
+                <element signature="e#11455#11456#0" expanded="true" />
+                <element signature="e#14286#15345#0" expanded="true" />
+                <element signature="e#15344#15345#0" expanded="true" />
+                <element signature="e#15393#15564#0" expanded="true" />
+                <element signature="e#15563#15564#0" expanded="true" />
+                <element signature="e#15611#15781#0" expanded="true" />
+                <element signature="e#15780#15781#0" expanded="true" />
+                <element signature="method#RechercherAuteur#0;class#Adherents#0" expanded="false" />
+                <element signature="method#RechercherTitre#0;class#Adherents#0" expanded="false" />
+                <element signature="method#GetNom#0;class#Adherents#0" expanded="false" />
+                <element signature="method#GetNom#1;class#Adherents#0" expanded="false" />
+                <element signature="method#GetPrenom#0;class#Adherents#0" expanded="false" />
+                <element signature="method#GetPrenom#1;class#Adherents#0" expanded="false" />
+                <element signature="method#SupprimerAdherent#0;class#Adherents#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ajouter_Adherent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="78" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="78" />
-              <folding />
-            </state>
+      <file leaf-file-name="Ajouter_Adherent.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ajouter_Pret.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Pret.java">
+      <file leaf-file-name="Ajouter_Adherent.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.40704226">
+              <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#555#564#0" expanded="true" />
-                <element signature="e#624#633#0" expanded="true" />
+                <element signature="method#Ajouter_Adherent#0;class#Ajouter_Adherent#0" expanded="false" />
+                <element signature="method#Ajouter_Adherent#1;class#Ajouter_Adherent#0" expanded="false" />
+                <element signature="method#Connexion#0;class#Ajouter_Adherent#0" expanded="false" />
+                <element signature="method#Boutons#0;class#Ajouter_Adherent#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -146,15 +172,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.form" />
         <option value="$PROJECT_DIR$/src/InfoClg/Main.java" />
         <option value="$PROJECT_DIR$/src/Ajouter_Pret.form" />
         <option value="$PROJECT_DIR$/src/Ajouter_Pret.java" />
         <option value="$PROJECT_DIR$/src/InfoClg/Ajouter_Pret.form" />
         <option value="$PROJECT_DIR$/src/InfoClg/Ajouter_Pret.java" />
-        <option value="$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.java" />
         <option value="$PROJECT_DIR$/src/InfoClg/Adherents.form" />
         <option value="$PROJECT_DIR$/src/InfoClg/Adherents.java" />
+        <option value="$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.form" />
+        <option value="$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.java" />
       </list>
     </option>
   </component>
@@ -201,7 +227,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -260,30 +285,9 @@
               <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TP3-BD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TP3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InfoClg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adherents" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -581,8 +585,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.67235494" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -592,7 +596,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22468354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.221519" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25104168" sideWeight="0.67235494" order="0" side_tool="false" content_ui="combo" />
@@ -627,30 +631,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.java</url>
-          <line>111</line>
+          <line>115</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.java</url>
-          <line>85</line>
+          <line>87</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/InfoClg/Ajouter_Pret.java</url>
-          <line>94</line>
+          <line>128</line>
           <properties />
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/InfoClg/Adherents.java</url>
-          <line>60</line>
+          <line>487</line>
           <properties />
-          <option name="timeStamp" value="26" />
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="27" />
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -659,6 +663,65 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/InfoClg/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InfoClg/Adherents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1412#1421#0" expanded="true" />
+            <element signature="method#Adherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherPrets#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetCodeGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNumLivre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivres#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivreSuivant#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivrePrecedent#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#1;class#Adherents#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherAdherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Adherents#0" expanded="false" />
+            <element signature="e#9694#11456#0" expanded="true" />
+            <element signature="e#11455#11456#0" expanded="true" />
+            <element signature="e#14286#15345#0" expanded="true" />
+            <element signature="e#15344#15345#0" expanded="true" />
+            <element signature="e#15393#15564#0" expanded="true" />
+            <element signature="e#15563#15564#0" expanded="true" />
+            <element signature="e#15611#15781#0" expanded="true" />
+            <element signature="e#15780#15781#0" expanded="true" />
+            <element signature="method#RechercherAuteur#0;class#Adherents#0" expanded="false" />
+            <element signature="method#RechercherTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#SupprimerAdherent#0;class#Adherents#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Pret.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#555#564#0" expanded="true" />
+            <element signature="e#624#633#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/InfoClg/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -673,7 +736,35 @@
           <caret line="197" column="33" selection-start-line="197" selection-start-column="33" selection-end-line="197" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1170#1179#0" expanded="true" />
+            <element signature="e#1412#1421#0" expanded="true" />
+            <element signature="method#Adherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherPrets#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetCodeGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNumLivre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivres#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivreSuivant#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivrePrecedent#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#1;class#Adherents#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherAdherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Adherents#0" expanded="false" />
+            <element signature="e#9694#11456#0" expanded="true" />
+            <element signature="e#11455#11456#0" expanded="true" />
+            <element signature="e#14286#15345#0" expanded="true" />
+            <element signature="e#15344#15345#0" expanded="true" />
+            <element signature="e#15393#15564#0" expanded="true" />
+            <element signature="e#15563#15564#0" expanded="true" />
+            <element signature="e#15611#15781#0" expanded="true" />
+            <element signature="e#15780#15781#0" expanded="true" />
+            <element signature="method#RechercherAuteur#0;class#Adherents#0" expanded="false" />
+            <element signature="method#RechercherTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#SupprimerAdherent#0;class#Adherents#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -709,7 +800,35 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1170#1179#0" expanded="true" />
+            <element signature="e#1412#1421#0" expanded="true" />
+            <element signature="method#Adherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherPrets#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetCodeGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNumLivre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivres#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivreSuivant#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivrePrecedent#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#1;class#Adherents#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherAdherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Adherents#0" expanded="false" />
+            <element signature="e#9694#11456#0" expanded="true" />
+            <element signature="e#11455#11456#0" expanded="true" />
+            <element signature="e#14286#15345#0" expanded="true" />
+            <element signature="e#15344#15345#0" expanded="true" />
+            <element signature="e#15393#15564#0" expanded="true" />
+            <element signature="e#15563#15564#0" expanded="true" />
+            <element signature="e#15611#15781#0" expanded="true" />
+            <element signature="e#15780#15781#0" expanded="true" />
+            <element signature="method#RechercherAuteur#0;class#Adherents#0" expanded="false" />
+            <element signature="method#RechercherTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#SupprimerAdherent#0;class#Adherents#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -718,7 +837,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="method#Ajouter_Adherent#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Ajouter_Adherent#1;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Ajouter_Adherent#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -738,7 +862,35 @@
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1170#1179#0" expanded="true" />
+            <element signature="e#1412#1421#0" expanded="true" />
+            <element signature="method#Adherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherPrets#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetCodeGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNumLivre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivres#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivreSuivant#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivrePrecedent#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#1;class#Adherents#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherAdherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Adherents#0" expanded="false" />
+            <element signature="e#9694#11456#0" expanded="true" />
+            <element signature="e#11455#11456#0" expanded="true" />
+            <element signature="e#14286#15345#0" expanded="true" />
+            <element signature="e#15344#15345#0" expanded="true" />
+            <element signature="e#15393#15564#0" expanded="true" />
+            <element signature="e#15563#15564#0" expanded="true" />
+            <element signature="e#15611#15781#0" expanded="true" />
+            <element signature="e#15780#15781#0" expanded="true" />
+            <element signature="method#RechercherAuteur#0;class#Adherents#0" expanded="false" />
+            <element signature="method#RechercherTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#SupprimerAdherent#0;class#Adherents#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -765,7 +917,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#Ajouter_Adherent#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Ajouter_Adherent#1;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Ajouter_Adherent#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -786,7 +943,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="90" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#Ajouter_Adherent#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Ajouter_Adherent#1;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Ajouter_Adherent#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -796,7 +958,35 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1170#1179#0" expanded="true" />
+            <element signature="e#1412#1421#0" expanded="true" />
+            <element signature="method#Adherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherPrets#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetCodeGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNumLivre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivres#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivreSuivant#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivrePrecedent#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#1;class#Adherents#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherAdherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Adherents#0" expanded="false" />
+            <element signature="e#9694#11456#0" expanded="true" />
+            <element signature="e#11455#11456#0" expanded="true" />
+            <element signature="e#14286#15345#0" expanded="true" />
+            <element signature="e#15344#15345#0" expanded="true" />
+            <element signature="e#15393#15564#0" expanded="true" />
+            <element signature="e#15563#15564#0" expanded="true" />
+            <element signature="e#15611#15781#0" expanded="true" />
+            <element signature="e#15780#15781#0" expanded="true" />
+            <element signature="method#RechercherAuteur#0;class#Adherents#0" expanded="false" />
+            <element signature="method#RechercherTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#SupprimerAdherent#0;class#Adherents#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -818,7 +1008,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#Ajouter_Adherent#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Ajouter_Adherent#1;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Ajouter_Adherent#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -828,7 +1023,35 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1170#1179#0" expanded="true" />
+            <element signature="e#1412#1421#0" expanded="true" />
+            <element signature="method#Adherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherPrets#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetCodeGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNumLivre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivres#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivreSuivant#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivrePrecedent#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#1;class#Adherents#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherAdherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Adherents#0" expanded="false" />
+            <element signature="e#9694#11456#0" expanded="true" />
+            <element signature="e#11455#11456#0" expanded="true" />
+            <element signature="e#14286#15345#0" expanded="true" />
+            <element signature="e#15344#15345#0" expanded="true" />
+            <element signature="e#15393#15564#0" expanded="true" />
+            <element signature="e#15563#15564#0" expanded="true" />
+            <element signature="e#15611#15781#0" expanded="true" />
+            <element signature="e#15780#15781#0" expanded="true" />
+            <element signature="method#RechercherAuteur#0;class#Adherents#0" expanded="false" />
+            <element signature="method#RechercherTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#SupprimerAdherent#0;class#Adherents#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -855,20 +1078,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Pret.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/InfoClg/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Pret.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#555#564#0" expanded="true" />
@@ -878,39 +1104,69 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/InfoClg/Adherents.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InfoClg/Adherents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="538" column="5" selection-start-line="538" selection-start-column="5" selection-end-line="538" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1412#1421#0" expanded="true" />
+            <element signature="method#Adherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherPrets#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetCodeGenre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNumLivre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivres#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivreSuivant#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherLivrePrecedent#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetGenre#1;class#Adherents#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Adherents#0" expanded="false" />
+            <element signature="method#AfficherAdherents#0;class#Adherents#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Adherents#0" expanded="false" />
+            <element signature="e#9694#11456#0" expanded="true" />
+            <element signature="e#11455#11456#0" expanded="true" />
+            <element signature="e#14286#15345#0" expanded="true" />
+            <element signature="e#15344#15345#0" expanded="true" />
+            <element signature="e#15393#15564#0" expanded="true" />
+            <element signature="e#15563#15564#0" expanded="true" />
+            <element signature="e#15611#15781#0" expanded="true" />
+            <element signature="e#15780#15781#0" expanded="true" />
+            <element signature="method#RechercherAuteur#0;class#Adherents#0" expanded="false" />
+            <element signature="method#RechercherTitre#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetNom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#0;class#Adherents#0" expanded="false" />
+            <element signature="method#GetPrenom#1;class#Adherents#0" expanded="false" />
+            <element signature="method#SupprimerAdherent#0;class#Adherents#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InfoClg/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/InfoClg/Ajouter_Adherent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="78" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InfoClg/Adherents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45870206">
-          <caret line="212" column="9" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.40704226">
+          <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1170#1179#0" expanded="true" />
+            <element signature="method#Ajouter_Adherent#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Ajouter_Adherent#1;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Connexion#0;class#Ajouter_Adherent#0" expanded="false" />
+            <element signature="method#Boutons#0;class#Ajouter_Adherent#0" expanded="false" />
           </folding>
         </state>
       </provider>
