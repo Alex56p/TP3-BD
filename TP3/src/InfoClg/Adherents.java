@@ -42,6 +42,7 @@ public class Adherents{
     private JTextField TB_Titre_Recherche;
     private JButton Rechercher_Auteur;
     private JButton Rechercher_Titre;
+    private JList Liste_PlusEmpruntes;
     private static Connection conn;
     public ArrayList<Integer> Num_Adherents = new ArrayList<Integer>();
     public ResultSet rst2;
@@ -56,9 +57,40 @@ public class Adherents{
         //Livres
         AfficherLivres();
 
-        // Prêts
+        // Prï¿½ts
         AfficherPrets();
+
+        //Plus empruntÃ©s
+        AfficherPlusEmpruntes();
     }
+    //----------------------------------------------------------------------
+    public void AfficherPlusEmpruntes()
+    {
+        try {
+            DefaultListModel liste = new DefaultListModel();
+
+            CallableStatement Callaff = conn.prepareCall(" { call TP3.LISTERPLUSEMPRUNTES(?)}");
+            Callaff.registerOutParameter(1, OracleTypes.CURSOR);
+            Callaff.execute();
+            ResultSet rstaff = (ResultSet)Callaff .getObject(1);
+            while(rstaff.next())
+            {
+                String Titre = rstaff.getString("TITRE_LIVRE");
+                String Count = Integer.toString(rstaff.getInt("NbFoisEmprunte"));
+                liste.addElement("Titre du livre:" + Titre + "                     Nombre de fois empruntÃ©s:" + Count );
+            }
+            Callaff .clearParameters();
+            Callaff .close();
+            rstaff.close();
+            Liste_PlusEmpruntes.setModel(liste);
+        }
+        catch(SQLException aff)
+        {
+            System.out.println(aff.getMessage());
+        }
+    }
+//---------------------------------------------------
+
 
     public void AfficherPrets()
     {
@@ -338,7 +370,7 @@ public class Adherents{
                 else
                 {
                     JFrame f = new JFrame();
-                    JOptionPane.showMessageDialog(f, "Veuillez sélectionner un adhérent.");
+                    JOptionPane.showMessageDialog(f, "Veuillez sï¿½lectionner un adhï¿½rent.");
                 }
 
             }
@@ -379,7 +411,7 @@ public class Adherents{
                 else
                 {
                     JFrame f = new JFrame();
-                    JOptionPane.showMessageDialog(f, "Veuillez sélectionner un adhérent.");
+                    JOptionPane.showMessageDialog(f, "Veuillez sï¿½lectionner un adhï¿½rent.");
                 }
             }
         });
@@ -469,6 +501,8 @@ public class Adherents{
 
             // Mettre la liste dans le form
             Liste_Recherche.setModel(liste);
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f,"Recherche terminÃ©.");
 
             stm.clearParameters();
 
@@ -500,6 +534,8 @@ public class Adherents{
 
             // Mettre la liste dans le form
             Liste_Recherche.setModel(liste);
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f,"Recherche terminÃ©.");
 
             stm.clearParameters();
 

@@ -1,0 +1,19 @@
+create or replace PACKAGE TP3 as
+TYPE requete is REF CURSOR;
+procedure ListerPlusEmpruntes (res out requete);
+END TP3;
+
+----------------------------------------
+
+CREATE OR REPLACE PACKAGE BODY TP3 AS
+
+PROCEDURE ListerPlusEmpruntes (res out requete) as
+ BEGIN
+ OPEN RES FOR SELECT TITRE_LIVRE, COUNT(EM.NUM_EXEMPLAIRE) FROM LIVRE L 
+ INNER JOIN EXEMPLAIRE E ON E.NUM_LIVRE = L.NUM_LIVRE
+ INNER JOIN EMPRUNT EM ON EM.NUM_EXEMPLAIRE = E.NUM_EXEMPLAIRE
+ GROUP BY TITRE_LIVRE ORDER BY COUNT(EM.NUM_EXEMPLAIRE) DESC;
+ 
+ END ListerPlusEmpruntes;
+
+END TP3;

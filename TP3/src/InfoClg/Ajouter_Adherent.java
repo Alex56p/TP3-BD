@@ -91,7 +91,7 @@ public class Ajouter_Adherent {
             {
                 if(!TB_Nom.getText().trim().isEmpty() && !TB_Prenom.getText().trim().isEmpty())
                 {
-                    String SQL = "INSERT INTO Adherent values(?, ?, ?, ?)";
+                    String SQL = "INSERT INTO Adherent(PRENOM_ADHERENT,NOM_ADHERENT,ADRESSE_ADHERENT,NUMTEL_ADHERENT) values(?, ?, ?, ?)";
                     PreparedStatement Ajout = conn.prepareStatement(SQL);
                     Ajout.setString(1, TB_Prenom.getText());
                     Ajout.setString(2, TB_Nom.getText());
@@ -123,7 +123,7 @@ public class Ajouter_Adherent {
                 int n = Update.executeUpdate();
                 Update.clearParameters();
 
-                javax.swing.JOptionPane.showMessageDialog(frame, "Adhérent modifi�!");
+                javax.swing.JOptionPane.showMessageDialog(frame, "Adhérent modifi�!");
             }
             catch(SQLException e)
             {

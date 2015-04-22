@@ -130,7 +130,7 @@ public class Ajouter_Pret {
             Integer NumC = Num_Adherents.get(NomC);
             // Prendre le num_Livre
             Integer NomL = CB_Livre.getSelectedIndex();
-            Integer NumL = Num_Adherents.get(NomL);
+            Integer NumL = Num_Livres.get(NomL);
             int NumE = RechercherExemplaire(NumL);
 
             // Date
@@ -145,7 +145,7 @@ public class Ajouter_Pret {
             if(NumE != 0)
             {
                 PlusDisponible(NumE);
-                // Requ�te
+                // Requ�te
                 String SQL = "INSERT INTO EMPRUNT VALUES(?, ?, ?, ?)";
                 PreparedStatement PS = conn.prepareStatement(SQL);
 
@@ -157,7 +157,8 @@ public class Ajouter_Pret {
                 int n = PS.executeUpdate();
                 PS.clearParameters();
 
-
+                JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f,"Prêt ajouté.");
             }
             else
             {
