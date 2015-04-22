@@ -89,7 +89,7 @@ public class Ajouter_Adherent {
             {
                 if(!TB_Nom.getText().trim().isEmpty() && !TB_Prenom.getText().trim().isEmpty())
                 {
-                    String SQL = "INSERT INTO Adherent values(Adherents_seq.Nextval, ?, ?)";
+                    String SQL = "INSERT INTO Adherent values(SEQ_ADHERENT.Nextval, ?, ?)";
                     PreparedStatement Ajout = conn.prepareStatement(SQL);
                     Ajout.setString(1, TB_Prenom.getText());
                     Ajout.setString(2, TB_Nom.getText());

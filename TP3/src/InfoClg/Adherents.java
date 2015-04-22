@@ -8,6 +8,7 @@ import java.awt.event.*;
 import java.sql.*;
 import java.util.ArrayList;
 
+import com.sun.org.apache.regexp.internal.RESyntaxException;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 import oracle.jdbc.*;
 import oracle.jdbc.pool.*;
@@ -32,8 +33,8 @@ public class Adherents{
     private JTextField TB_Genre;
     private JTextField TB_Date;
     private JTextField TB_Maison;
-    private JTable Table_Prets;
     private JButton BTN_Ajouter_Pret;
+    private JList Liste_Pret;
     private static Connection conn;
     public ArrayList<Integer> Num_Adherents = new ArrayList<Integer>();
 
@@ -49,18 +50,154 @@ public class Adherents{
         AfficherLivres();
 
         // Prêts
-        AjouterRows();
+        AfficherPrets();
         //AfficherPrets();
     }
 
+    public void AfficherPrets()
+    {
+        try
+        {
+            String SQL = "SELECT Num_Exemplaire, Num_Adherent, Date_Emprunt, DateRetour_Emprunt FROM Emprunt";
+            PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rst = stm.executeQuery();
+
+            // Crï¿½er une liste pour mettre les enregistrements
+            DefaultListModel liste = new DefaultListModel();
+
+            while(rst.next())
+            {
+                int Num_Exemplaire = rst.getInt("Num_Exemplaire");
+                int Num_Adherent = rst.getInt("Num_Adherent");
+                liste.addElement( "Titre Livre : " + GetTitre(Num_Exemplaire) + " | Genre Livre : " + GetGenre(Num_Exemplaire) + " | Date du Prêt : " + rst.getDate("Date_Emprunt") + " | Date de retour : " + rst.getDate("DateRetour_Emprunt") + " | Nom Adherent : " + GetPrenom(Num_Adherent) + " " + GetNom(Num_Adherent));
+            }
+
+            // Mettre la liste dans le form
+            Liste_Pret.setModel(liste);
+
+            stm.clearParameters();
+        }
+        catch(SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "AfficherPrets");
+        }
+
+
+    }
+
+    public String GetGenre(int Num_Livre)
+    {
+        String Res = "";
+
+        try
+        {
+            String SQL = "Select Nom_Genre FROM GENRE WHERE Code_Genre = ?";
+            int CodeGenre = GetCodeGenre(Num_Livre);
+            PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stm.setInt(1, CodeGenre);
+            ResultSet rst = stm.executeQuery();
+
+            if(rst.next())
+            {
+                Res = rst.getString("Nom_Genre");
+            }
+            stm.clearParameters();
+        }
+        catch(SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "GetGenre");
+        }
+
+        return Res;
+    }
+
+    public int GetCodeGenre(int Num_Livre)
+    {
+        int Res = 0;
+
+        try
+        {
+            String SQL = "SELECT Code_Genre FROM Livre WHERE Num_Livre = ?";
+            PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stm.setInt(1, Num_Livre);
+            ResultSet rst = stm.executeQuery();
+
+            if(rst.next())
+            {
+                Res = rst.getInt("Code_Genre");
+            }
+            stm.clearParameters();
+        }
+        catch(SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "GetCodeGenre");
+        }
+
+        return Res;
+    }
+
+    public String GetTitre(int Num_Exemplaire)
+    {
+        String Res = "";
+        try
+        {
+            String SQL = "SELECT Titre_Livre FROM Livre WHERE Num_Livre = ?";
+            int Num = GetNumLivre(Num_Exemplaire);
+            PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stm.setInt(1, Num);
+            ResultSet rst = stm.executeQuery();
+
+            if(rst.next())
+            {
+                Res = rst2.getString("Titre_Livre");
+            }
+            stm.clearParameters();
+        }
+        catch(SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "GetTitre");
+        }
+
+        return Res;
+    }
+
+    public int GetNumLivre(int Num_Exemplaire)
+    {
+        int num = 0;
+        try
+        {
+            String SQL = "SELECT Num_Livre FROM Exemplaire WHERE Num_Exemplaire = ?";
+            PreparedStatement stm = conn.prepareStatement(SQL);
+            stm.setInt(1, Num_Exemplaire);
+            ResultSet rst = stm.executeQuery();
+
+            if(rst.next())
+            {
+                num = rst.getInt("Num_Livre");
+            }
+            stm.clearParameters();
+        }
+        catch (SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "GetNumLivre");
+        }
+
+        return num;
+    }
+
     private void AfficherLivres() throws Exception{
-        String SQL = "SELECT NUM_LIVRE, TITRE_LIVRE,CODE_GENRE, AUTEUR_LIVRE,ANNEE_LIVRE FROM LIVRE";
+        String SQL = "SELECT NUM_LIVRE, TITRE_LIVRE,CODE_GENRE, AUTEUR_LIVRE,ANNEE_LIVRE FROM LIVRE ORDER BY CODE_GENRE";
         PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         rst2 = stm.executeQuery();
         if(rst2.first()) {
             TB_Numero.setText(rst2.getString("NUM_LIVRE"));
             TB_Titre.setText(rst2.getString("TITRE_LIVRE"));
-            TB_Genre.setText(rst2.getString("CODE_GENRE"));
+            TB_Genre.setText(GetGenre(rst2.getString("CODE_GENRE")));
             TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
             TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
         }
@@ -70,7 +207,7 @@ public class Adherents{
         if (rst2.next()) {
             TB_Numero.setText(rst2.getString("NUM_LIVRE"));
             TB_Titre.setText(rst2.getString("TITRE_LIVRE"));
-            TB_Genre.setText(rst2.getString("CODE_GENRE"));
+            TB_Genre.setText(GetGenre(rst2.getString("CODE_GENRE")));
             TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
             TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
         }
@@ -79,12 +216,37 @@ public class Adherents{
         if(rst2.previous()) {
             TB_Numero.setText(rst2.getString("NUM_LIVRE"));
             TB_Titre.setText(rst2.getString("TITRE_LIVRE"));
-            TB_Genre.setText(rst2.getString("CODE_GENRE"));
+            TB_Genre.setText(GetGenre(rst2.getString("CODE_GENRE")));
             TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
             TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
         }
     }
 
+    public String GetGenre(String CodeGenre)
+    {
+        String Res = "";
+
+        try
+        {
+            String SQL = "SELECT Nom_Genre FROM Genre WHERE Code_Genre = ?";
+            PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stm.setString(1, CodeGenre);
+            ResultSet rst = stm.executeQuery();
+
+            if(rst.next())
+            {
+                Res = rst.getString("Nom_Genre");
+            }
+
+            stm.clearParameters();
+        }
+        catch(SQLException e)
+        {
+
+        }
+
+        return Res;
+    }
     public void Connexion() throws Exception
     {
         String user1 ="parental";
@@ -277,6 +439,56 @@ public class Adherents{
         return "";
     }
 
+    public String GetNom(int Num_Adherent)
+    {
+        try
+        {
+            String SQL = "SELECT Nom_Adherent FROM Adherent WHERE Num_Adherent = ?";
+            PreparedStatement PS= conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            PS.setInt(1, Num_Adherent);
+            ResultSet rst = PS.executeQuery();
+
+            if(rst.first())
+            {
+                return rst.getString("Nom_Adherent");
+            }
+
+            PS.clearParameters();
+        }
+        catch(SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "GetNomAdherent");
+        }
+
+        return "";
+    }
+
+    public String GetPrenom(int Num_Adherent)
+    {
+        try
+        {
+            String SQL = "SELECT Prenom_Adherent FROM Adherent WHERE Num_Adherent = ?";
+            PreparedStatement PS= conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            PS.setInt(1, Num_Adherent);
+            ResultSet rst = PS.executeQuery();
+
+            if(rst.first())
+            {
+                return rst.getString("Prenom_Adherent");
+            }
+
+            PS.clearParameters();
+        }
+        catch(SQLException e)
+        {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "GetPrenomAdherent");
+        }
+
+        return "";
+    }
+
     public String GetPrenom()
     {
         try
@@ -328,10 +540,5 @@ public class Adherents{
         {
 
         }
-    }
-
-    public void AjouterRows()
-    {
-
     }
 }
