@@ -5,14 +5,9 @@ import oracle.jdbc.pool.OracleDataSource;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-/**
- * Created by Alexis on 2015-04-20.
- */
 public class Ajouter_Adherent {
     private JTextField TB_Prenom;
     private JTextField TB_Nom;
@@ -31,12 +26,14 @@ public class Ajouter_Adherent {
         Modifier = false;
     }
 
-    public Ajouter_Adherent(String Nom, String Prenom, int Num_Adherent)
+    public Ajouter_Adherent(String Nom, String Prenom, int Num_Adherent, String Adresse, String NumTel)
     {
         Connexion();
         Boutons();
         TB_Nom.setText(Nom);
         TB_Prenom.setText(Prenom);
+        TB_Adresse.setText(Adresse);
+        TB_Telephone.setText(NumTel);
         Modifier = true;
         Num = Num_Adherent;
         BTN_Ajouter.setText("Modifier");
@@ -114,12 +111,14 @@ public class Ajouter_Adherent {
         {
             try
             {
-                String SQL = "UPDATE Adherent SET Prenom_Adherent = ? , Nom_Adherent = ? WHERE Num_Adherent = ?";
+                String SQL = "UPDATE Adherent SET Prenom_Adherent = ? , Nom_Adherent = ?, Adresse_Adherent = ? , NumTel_Adherent = ? WHERE Num_Adherent = ?";
                 PreparedStatement Update = conn.prepareStatement(SQL);
                 Update= conn.prepareStatement(SQL);
                 Update.setString(1, TB_Prenom.getText());
                 Update.setString(2, TB_Nom.getText());
-                Update.setInt(3, Num);
+                Update.setString(3, TB_Adresse.getText());
+                Update.setString(4, TB_Telephone.getText());
+                Update.setInt(5, Num);
                 int n = Update.executeUpdate();
                 Update.clearParameters();
 

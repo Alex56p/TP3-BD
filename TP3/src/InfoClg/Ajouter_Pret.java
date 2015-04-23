@@ -1,19 +1,17 @@
 package InfoClg;
 
-import InfoClg.Ajouter_Adherent;
 import oracle.jdbc.pool.OracleDataSource;
-import sun.jdbc.odbc.JdbcOdbcPreparedStatement;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
-import java.util.*;
-import java.util.Date;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
 
-/**
- * Created by Alexis on 2015-04-21.
- */
 public class Ajouter_Pret {
     public JPanel Panel1;
     private JComboBox CB_Client;
@@ -68,7 +66,7 @@ public class Ajouter_Pret {
             String SQL = "SELECT Num_Adherent, Prenom_Adherent, Nom_Adherent FROM Adherent";
             PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rst = stm.executeQuery(SQL);
-
+            Num_Adherents.clear();
             // Mettre les enregistrements
             while(rst.next())
             {
@@ -95,7 +93,7 @@ public class Ajouter_Pret {
             String SQL = "SELECT Num_Livre, Titre_Livre FROM Livre";
             PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rst = stm.executeQuery(SQL);
-
+            Num_Livres.clear();
             // Mettre les enregistrements
             while(rst.next())
             {

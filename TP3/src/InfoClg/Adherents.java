@@ -1,18 +1,15 @@
 package InfoClg;
 
+import oracle.jdbc.OracleTypes;
+import oracle.jdbc.pool.OracleDataSource;
+
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.xml.transform.Result;
-import java.awt.event.*;
-import java.beans.PropertyChangeListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.*;
 import java.util.ArrayList;
-
-import com.sun.org.apache.regexp.internal.RESyntaxException;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-import oracle.jdbc.*;
-import oracle.jdbc.pool.*;
 
 /**
  * Created by 201332037 on 2015-04-13.
@@ -231,7 +228,7 @@ public class Adherents{
 
     private void AfficherLivres() throws Exception
     {
-        String SQL = "SELECT NUM_LIVRE, TITRE_LIVRE,CODE_GENRE, AUTEUR_LIVRE,ANNEE_LIVRE FROM LIVRE ORDER BY CODE_GENRE";
+        String SQL = "SELECT NUM_LIVRE, TITRE_LIVRE,CODE_GENRE, AUTEUR_LIVRE,ANNEE_LIVRE, MAISON_LIVRE FROM LIVRE ORDER BY CODE_GENRE";
         PreparedStatement stm = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         rst2 = stm.executeQuery();
         if(rst2.first()) {
@@ -240,6 +237,7 @@ public class Adherents{
             TB_Genre.setText(GetGenre(rst2.getString("CODE_GENRE")));
             TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
             TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
+            TB_Maison.setText(rst2.getString("MAISON_LIVRE"));
         }
     }
 
@@ -251,6 +249,7 @@ public class Adherents{
             TB_Genre.setText(GetGenre(rst2.getString("CODE_GENRE")));
             TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
             TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
+            TB_Maison.setText(rst2.getString("MAISON_LIVRE"));
         }
     }
 
@@ -262,6 +261,7 @@ public class Adherents{
             TB_Genre.setText(GetGenre(rst2.getString("CODE_GENRE")));
             TB_Auteur.setText(rst2.getString("AUTEUR_LIVRE"));
             TB_Date.setText(rst2.getString("ANNEE_LIVRE"));
+            TB_Maison.setText(rst2.getString("MAISON_LIVRE"));
         }
     }
 
@@ -316,7 +316,7 @@ public class Adherents{
 
         // Cr�er une liste pour mettre les enregistrements
         DefaultListModel liste = new DefaultListModel();
-
+        Num_Adherents.clear();
         // Mettre les enregistrements
         while(rst.next())
         {
@@ -382,13 +382,15 @@ public class Adherents{
                 if(!Liste_Adherents.isSelectionEmpty()) {
                     String Nom = GetNom();
                     String Prenom = GetPrenom();
+                    String Adresse = GetAdresse();
+                    String NumTel = GetNumTel();
                     Integer Nom1 = Liste_Adherents.getSelectedIndex();
                     Integer Num = Num_Adherents.get(Nom1);
 
                     // on cr�e une fen�tre dont le titre est "Bonjour"
                     JFrame frame = new JFrame("Ajouter_Adherent");
                     // on ajoute le contenu du Panne1
-                    frame.setContentPane(new Ajouter_Adherent(Nom, Prenom, Num).Panel1);
+                    frame.setContentPane(new Ajouter_Adherent(Nom, Prenom, Num, Adresse, NumTel).Panel1);
                     //la fen�tre se ferme quand on clique sur la croix rouge
                     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     //on attribue la taille minimale au frame
@@ -402,6 +404,7 @@ public class Adherents{
                         public void windowClosing(WindowEvent windowEvent) {
                             try {
                                 AfficherAdherents();
+
                             } catch (Exception a) {
 
                             }
@@ -458,6 +461,7 @@ public class Adherents{
                     public void windowClosing(WindowEvent windowEvent) {
                         try {
                             AfficherPrets();
+                            AfficherPlusEmpruntes();
                         } catch (Exception a) {
 
                         }
@@ -479,6 +483,58 @@ public class Adherents{
                 RechercherTitre();
             }
         });
+    }
+
+    private String GetAdresse() {
+        try
+        {
+            Integer Nom = Liste_Adherents.getSelectedIndex();
+            Integer Num = Num_Adherents.get(Nom);
+
+            String SQL = "SELECT Adresse_Adherent FROM Adherent WHERE Num_Adherent = ?";
+            PreparedStatement PS= conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            PS.setInt(1, Num);
+            ResultSet rst = PS.executeQuery();
+
+            if(rst.first())
+            {
+                return rst.getString("Adresse_Adherent");
+            }
+
+            PS.clearParameters();
+        }
+        catch(SQLException e)
+        {
+
+        }
+
+        return "";
+    }
+
+    private String GetNumTel() {
+        try
+        {
+            Integer Nom = Liste_Adherents.getSelectedIndex();
+            Integer Num = Num_Adherents.get(Nom);
+
+            String SQL = "SELECT NumTel_Adherent FROM Adherent WHERE Num_Adherent = ?";
+            PreparedStatement PS= conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            PS.setInt(1, Num);
+            ResultSet rst = PS.executeQuery();
+
+            if(rst.first())
+            {
+                return rst.getString("NumTel_Adherent");
+            }
+
+            PS.clearParameters();
+        }
+        catch(SQLException e)
+        {
+
+        }
+
+        return "";
     }
 
     public void RechercherAuteur()
