@@ -44,7 +44,8 @@ CREATE TABLE Livre
     Code_Genre   NUMBER NOT NULL ,
     Titre_Livre  VARCHAR2(100) ,
     Auteur_Livre VARCHAR2(50) ,
-    Annee_Livre  NUMBER(4)
+    Annee_Livre  NUMBER(4),
+    Maison_Livre VARCHAR2(50)
   ) ;
 ALTER TABLE Livre ADD CONSTRAINT Livre_PK PRIMARY KEY ( Num_Livre ) ;
 
@@ -90,22 +91,22 @@ INSERT INTO Genre VALUES(seq_genre.nextval, 'Aventure');
 INSERT INTO Genre VALUES(seq_genre.nextval, 'Science-Fiction');
 INSERT INTO Genre VALUES(seq_genre.nextval, 'Dramatique');
 
-INSERT INTO Livre VALUES(seq_livres.nextval, 2, 'Harry Potter', 'J.K. Rowling', '2000');
+INSERT INTO Livre VALUES(seq_livres.nextval, 2, 'Harry Potter', 'J.K. Rowling', '2000','Baguette Magique');
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 0);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 0);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 0);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 2, 0);
-INSERT INTO Livre VALUES(seq_livres.nextval, 3, 'Amos Daragon', 'Le pape', '1000');
+INSERT INTO Livre VALUES(seq_livres.nextval, 3, 'Amos Daragon', 'Le pape', '1000', 'Dragon de feu');
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 3, 0);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 3, 0);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 3, 0);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 3, 0);
-INSERT INTO Livre VALUES(seq_livres.nextval, 4, 'Interstellaire', 'Alain Patoche', '1990');
+INSERT INTO Livre VALUES(seq_livres.nextval, 4, 'Interstellaire', 'Alain Patoche', '1990', 'Courte Echelle');
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 4, 0);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 4, 1);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 4, 1);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 4, 1);
-INSERT INTO Livre VALUES(seq_livres.nextval, 5, '50 shades of grey', 'Martin Poilu', '1234');
+INSERT INTO Livre VALUES(seq_livres.nextval, 5, '50 shades of grey', 'Martin Poilu', '1234', 'Lire cest bien');
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 5, 1);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 5, 1);
 INSERT INTO Exemplaire VALUES (seq_Exemplaire.nextval, 5, 1);
